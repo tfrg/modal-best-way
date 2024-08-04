@@ -20,7 +20,17 @@ import { productColumns, productRows } from '@/data/products';
 import { Icons } from '@/components/icons';
 import DashedPlaceholder from '@/components/ui/dashed-placeholder';
 
+import { useModalStore } from '@/components/ui/single-modal/single-modal';
+import EditProductModal from '@/components/ui/product-modal/edit-product-modal';
+import DeleteProductModal from '@/components/ui/product-modal/delete-product-modal';
+
 export default function SingleModalPage() {
+  // Modal Management
+  const openModal = useModalStore((state) => state.openModal);
+
+  const openEditModal = () => openModal({ children: <EditProductModal /> });
+  const openDeleteModal = () => openModal({ children: <DeleteProductModal /> });
+
   return (
     <>
       <Card>
@@ -51,11 +61,19 @@ export default function SingleModalPage() {
                   <TableCell>{product.inventory}</TableCell>
                   <TableCell>
                     <div className="flex items-center justify-end gap-2">
-                      <Button variant="ghost" size="icon" onClick={() => {}}>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={openEditModal}
+                      >
                         <Icons.filePen className="h-4 w-4" />
                         <span className="sr-only">Edit</span>
                       </Button>
-                      <Button variant="ghost" size="icon" onClick={() => {}}>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={openDeleteModal}
+                      >
                         <Icons.trash className="h-4 w-4" />
                         <span className="sr-only">Delete</span>
                       </Button>
