@@ -1,6 +1,6 @@
-# Next.js Toy Mini Project
+# Efficient Modal Management System Implementation Using Next.js
 
-This is a frontend toy mini project using Next.js.
+This project is a frontend mini-project using Next.js to implement an effective and reusable modal management system. The main goal was to minimize code duplication and develop an extensible and easily maintainable modal logic.
 
 ## Important Note
 
